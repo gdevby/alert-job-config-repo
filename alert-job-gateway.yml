@@ -24,7 +24,7 @@ spring:
             client-id: client-test-service
             client-secret: 0T1oDiRDnb18geE1KvD9KSVX6eBlV2AD
             authorization-grant-type: authorization_code
-            redirect-uri: http://alert-job-keycloak:8080/login/oauth2/code/keycloak
+            redirect-uri: http://alert-job-gateway:8015/login/oauth2/code/keycloak
   cloud:
     gateway:
       discovery:
