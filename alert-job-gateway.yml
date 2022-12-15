@@ -4,7 +4,7 @@ eureka:
     fetch-registry: true
     preferIpAddress: true
     service-url:
-      defaultZone: http://alert-job-eureka:8012/eureka
+      defaultZone: http://eureka:8012/eureka
   instance:
     prefer-ip-address: true
 spring:
