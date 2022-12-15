@@ -40,7 +40,7 @@ logging:
       org:
         springframework:
           security:
-            web: TRACE
+            web: INFO
 management:
   endpoints:
     web:
