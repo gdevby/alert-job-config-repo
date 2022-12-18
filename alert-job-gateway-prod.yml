@@ -22,7 +22,7 @@ spring:
             provider: my-keycloak-provider
             scope: openid
             client-id: aj-client
-            client-secret: ${client_secret}
+            client-secret: 
             authorization-grant-type: authorization_code
             redirect-uri:  https://aj.gdev.by/login/oauth2/code/keycloak
   cloud:
