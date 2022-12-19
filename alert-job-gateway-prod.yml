@@ -1,3 +1,5 @@
+gateway:
+  logout: "https://aj.gdev.by"
 eureka:
   client:
     register-with-eureka: true
