@@ -1,0 +1,48 @@
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    preferIpAddress: true
+    service-url:
+      defaultZone: http://eureka:8012/eureka
+  instance:
+    prefer-ip-address: true
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://auth.gdev.by/realms/aj/protocol/openid-connect/certs
+      client:
+        provider:
+          my-keycloak-provider:
+            issuer-uri: https://auth.gdev.by/realms/aj
+        registration:
+          keycloak-spring-gateway-client:
+            provider: my-keycloak-provider
+            scope: openid
+            client-id: aj-client
+            client-secret: 
+            authorization-grant-type: authorization_code
+            redirect-uri:  https://aj.gdev.by/login/oauth2/code/keycloak
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      default-filters:
+        - TokenRelay
+
+# Enable these to debug the Authorization flow
+logging:
+    level:
+      org:
+        springframework:
+          security:
+            web: INFO
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
