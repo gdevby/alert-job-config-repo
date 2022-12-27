@@ -12,19 +12,19 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://aj.by/keycloak/realms/myrealm/protocol/openid-connect/certs
+          jwk-set-uri: http://auth.alertjob.by/realms/myrealm/protocol/openid-connect/certs
       client:
         provider:
           my-keycloak-provider:
-            issuer-uri: http://aj.by/keycloak/realms/myrealm
+            issuer-uri: http://auth.alertjob.by/realms/myrealm
         registration:
           keycloak-spring-gateway-client:
             provider: my-keycloak-provider
             scope: openid
             client-id: client-test-service
-            client-secret: mP46OTWUCeKsZf3QpRBxY4TA47A9vnNc
+            client-secret: dbjPURDGArTmsjl8AJMgy0W8SKPT3eth
             authorization-grant-type: authorization_code
-            redirect-uri:  http://aj.by/login/oauth2/code/keycloak
+            redirect-uri:  http://alertjob.by/login/oauth2/code/keycloak
   cloud:
     gateway:
       discovery:
@@ -34,13 +34,6 @@ spring:
       default-filters:
         - TokenRelay
 
-# Enable these to debug the Authorization flow
-logging:
-    level:
-      org:
-        springframework:
-          security:
-            web: INFO
 management:
   endpoints:
     web:
