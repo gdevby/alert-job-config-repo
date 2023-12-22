@@ -12,11 +12,11 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://auth.alertjob.by/realms/myrealm/protocol/openid-connect/certs
+          jwk-set-uri: http://alertjob.by/keycloak/realms/myrealm/protocol/openid-connect/certs
       client:
         provider:
           my-keycloak-provider:
-            issuer-uri: http://auth.alertjob.by/realms/myrealm
+            issuer-uri: http://alertjob.by/keycloak/realms/myrealm
         registration:
           keycloak-spring-gateway-client:
             provider: my-keycloak-provider
