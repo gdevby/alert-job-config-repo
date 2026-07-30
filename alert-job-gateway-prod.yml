@@ -7,6 +7,7 @@ eureka:
       defaultZone: http://eureka:8012/eureka
   instance:
     prefer-ip-address: true
+
 spring:
   security:
     oauth2:
@@ -25,8 +26,16 @@ spring:
             client-secret: ${GATEWAY_OAUTH2_CLIENT_REGISTRATION_CLIENT_SECRET}
             authorization-grant-type: authorization_code
             redirect-uri: https://aj.gdev.by/login/oauth2/code/keycloak
+
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "https://aj.gdev.by"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
       discovery:
         locator:
           enabled: true
@@ -36,11 +45,12 @@ spring:
 
 # Enable these to debug the Authorization flow
 logging:
-    level:
-      org:
-        springframework:
-          security:
-            web: INFO
+  level:
+    org:
+      springframework:
+        security:
+          web: INFO
+
 management:
   endpoints:
     web:
