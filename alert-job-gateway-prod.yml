@@ -12,19 +12,19 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: https://auth.gdev.by/realms/aj/protocol/openid-connect/certs
+          jwk-set-uri: https://aj.gdev.by/keycloak/realms/aj/protocol/openid-connect/certs
       client:
         provider:
           my-keycloak-provider:
-            issuer-uri: https://auth.gdev.by/realms/aj
+            issuer-uri: https://aj.gdev.by/keycloak/realms/aj
         registration:
           keycloak-spring-gateway-client:
             provider: my-keycloak-provider
             scope: openid
             client-id: aj-client
-            client-secret: 
+            client-secret: ${GATEWAY_OAUTH2_CLIENT_REGISTRATION_CLIENT_SECRET}
             authorization-grant-type: authorization_code
-            redirect-uri:  https://aj.gdev.by/login/oauth2/code/keycloak
+            redirect-uri: https://aj.gdev.by/login/oauth2/code/keycloak
   cloud:
     gateway:
       discovery:
